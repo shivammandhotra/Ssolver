@@ -9,8 +9,7 @@ sudoku=[[0,4,2,6,0,0,0,0,3],
        [0,0,1,0,0,0,0,0,0],
        [3,0,0,0,0,2,8,9,0]]
 #print(sudoku)
-'''import numpy as np
-print(n p.matrix(sudoku))'''
+
 def possible(y,x,n):
       global sudoku
       for i in range(0,9):
@@ -26,4 +25,17 @@ def possible(y,x,n):
                   if sudoku[y0+i][x0+j]==n:
                         return False
       return True
-print(possible(4,4,3) )
+
+def solver():
+     global sudoku
+     for x in range(0,9):
+           for y in range(0,9):
+                 if sudoku[x][y]==0:
+                       for n in range(1,10):
+                             if possible(x,y,n):
+                                   sudoku[x][y]=n
+                                   solver()
+                                   sudoku[x][y]=0
+                        return
+      print(sudoku)                  
+ 
