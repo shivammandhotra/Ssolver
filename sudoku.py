@@ -36,6 +36,7 @@ def solver():
                                    sudoku[x][y]=n
                                    solver()
                                    sudoku[x][y]=0
-                        return
+                                   return
+                        
       print(sudoku)                  
  
